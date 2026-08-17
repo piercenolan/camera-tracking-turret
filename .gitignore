@@ -1,0 +1,23 @@
+# logged runs
+logs/*
+!logs/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+*.egg-info/
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Arduino build artifacts
+arduino/**/build/
+
+CLAUDE.md
+PLAN.md
