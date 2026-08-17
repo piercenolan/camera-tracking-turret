@@ -9,7 +9,7 @@ main.py). Do not hardcode any of these elsewhere; import from here instead.
 # ---------------------------------------------------------------------------
 # Camera (Milestone 1)
 # ---------------------------------------------------------------------------
-CAMERA_INDEX = 0            # cv2.VideoCapture device index; may not be the USB cam
+CAMERA_INDEX = 1            # cv2.VideoCapture device index; may not be the USB cam
 FRAME_WIDTH = 640
 FRAME_HEIGHT = 480
 
