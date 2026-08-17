@@ -5,6 +5,10 @@ import cv2
 from src import config
 
 
+class CameraDisconnected(RuntimeError):
+    """Raised by Camera.frames() after too many consecutive failed reads."""
+
+
 class Camera:
     """Thin wrapper around cv2.VideoCapture with clean open/release semantics."""
 
@@ -36,6 +40,26 @@ class Camera:
 
         ok, frame = self._cap.read()
         return frame if ok else None
+
+    def frames(self):
+        """Yield frames forever. A single dropped frame is skipped silently;
+        after config.MAX_CONSECUTIVE_DROPPED_FRAMES in a row (camera likely
+        disconnected), raises CameraDisconnected instead of looping forever."""
+        dropped_in_a_row = 0
+        while True:
+            frame = self.read()
+
+            if frame is None:
+                dropped_in_a_row += 1
+                if dropped_in_a_row >= config.MAX_CONSECUTIVE_DROPPED_FRAMES:
+                    raise CameraDisconnected(
+                        f"No frame after {dropped_in_a_row} consecutive attempts. "
+                        "Camera may have disconnected."
+                    )
+                continue
+
+            dropped_in_a_row = 0
+            yield frame
 
     def release(self):
         if self._cap is not None:

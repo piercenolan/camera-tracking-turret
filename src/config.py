@@ -12,16 +12,19 @@ main.py). Do not hardcode any of these elsewhere; import from here instead.
 CAMERA_INDEX = 1            # cv2.VideoCapture device index; may not be the USB cam
 FRAME_WIDTH = 640
 FRAME_HEIGHT = 480
+MAX_CONSECUTIVE_DROPPED_FRAMES = 10  # Camera.frames() raises CameraDisconnected past this
 
 # ---------------------------------------------------------------------------
 # Tracker / HSV color threshold (Milestone 2)
 # Six bounds set interactively with tools/tune_hsv.py, then copied here.
 # Currently tuned for: a lemon.
 # ---------------------------------------------------------------------------
-HSV_LOWER = (0, 0, 0)       # placeholder — set via tune_hsv.py
-HSV_UPPER = (179, 255, 255) # placeholder — set via tune_hsv.py
-
+HSV_LOWER = (9, 191, 80)
+HSV_UPPER = (127, 255, 255) 
 MIN_CONTOUR_AREA = 500      # px^2 below which a detection is rejected as noise
+
+MORPH_KERNEL_SIZE = 5       # erode/dilate kernel is MORPH_KERNEL_SIZE x MORPH_KERNEL_SIZE
+MORPH_ITERATIONS = 2        # erode/dilate passes; higher = cleans more noise, costs more time
 
 # ---------------------------------------------------------------------------
 # Serial / Arduino (Milestone 3)
