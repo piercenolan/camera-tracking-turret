@@ -1,4 +1,4 @@
-"""Frame -> target centroid. See tools/test_tracker.py for the manual test."""
+"""Frame -> target centroid. See tools/try_tracker.py for the manual test."""
 
 import cv2
 import numpy as np

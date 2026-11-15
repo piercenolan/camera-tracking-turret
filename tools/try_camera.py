@@ -30,7 +30,7 @@ def main():
                         fps = (len(frame_times) - 1) / elapsed
 
                 cv2.putText(
-                    frame, f"FPS: {fps:.1f}", (10, 30),
+                    frame, f"Loop FPS: {fps:.1f}", (10, 30),
                     cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 0), 2,
                 )
                 cv2.imshow("test_camera", frame)

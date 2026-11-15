@@ -2,7 +2,7 @@
 All tunable constants for the turret, in one place.
 
 Every value below is a PLACEHOLDER. Nothing here has been measured or tuned
-yet — that happens milestone by milestone (tune_hsv.py, test_serial.py,
+yet — that happens milestone by milestone (tune_hsv.py, try_serial.py,
 main.py). Do not hardcode any of these elsewhere; import from here instead.
 """
 
