@@ -1,4 +1,4 @@
-"""Serial connection to the Arduino. See tools/test_serial.py for the manual test."""
+"""Serial connection to the Arduino. See tools/try_serial.py for the manual test."""
 
 import time
 

@@ -1,4 +1,4 @@
-"""Camera capture wrapper. See tools/test_camera.py for the manual test."""
+"""Camera capture wrapper. See tools/try_camera.py for the manual test."""
 
 import cv2
 
