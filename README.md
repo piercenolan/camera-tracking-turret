@@ -34,7 +34,7 @@ flowchart LR
 | Control and prediction | In progress |
 | Closed-loop simulator | In progress |
 | Firmware: checksummed protocol, watchdog, host-side unit tests | In progress |
-| Automated tests and CI | In progress |
+| Automated tests and CI | pytest and GitHub Actions running on every push; test coverage grows with each milestone |
 | Target selection from 80 object classes | Planned |
 | Hardware bring-up and measured results | January 2027 |
 
