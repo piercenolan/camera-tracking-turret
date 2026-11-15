@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"name": "camera-tracking-turret",
+			"path": "../.."
+		}
+	],
+	"settings": {}
+}
