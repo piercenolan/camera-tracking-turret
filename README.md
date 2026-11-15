@@ -42,18 +42,30 @@ flowchart LR
 
 None yet. Simulation results (tracking error with prediction off and on) will be posted here first, followed by hardware measurements and a side-by-side video.
 
+## Setup and tests
+
+Requires Python 3.12. Windows PowerShell shown; run from the repo root.
+
+```
+py -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements-dev.txt
+python -m pytest
+```
+
+Tests need no camera, window or serial port. CI runs the same `pytest` on every push.
+
 ## Run what exists today
 
-Requires Python 3.12 and a webcam.
+Needs a webcam, with the venv active.
 
 ```
-pip install -r requirements.txt
-python tools/test_camera.py     # live feed with measured FPS
+python tools/try_camera.py      # live feed with measured FPS
 python tools/tune_hsv.py        # sliders to isolate a color
-python tools/test_tracker.py    # tracked centroid drawn on the feed
+python tools/try_tracker.py     # tracked centroid drawn on the feed
 ```
 
-Set `CAMERA_INDEX` in `src/config.py` if the wrong camera opens. `tools/test_serial.py` needs the Arduino connected.
+Set `CAMERA_INDEX` in `src/config.py` if the wrong camera opens. `tools/try_serial.py` needs the Arduino connected.
 
 ## Hardware
 
@@ -66,8 +78,10 @@ Set `CAMERA_INDEX` in `src/config.py` if the wrong camera opens. `tools/test_ser
 
 ```
 src/        vision, control and serial code
-tools/      manual test scripts, one per layer
+tests/      automated pytest tests (no hardware needed)
+tools/      manual scripts that need a camera or the Arduino
 arduino/    firmware sketch
+.github/    CI workflow
 PRD.md      requirements and acceptance tests for each milestone
 ```
 
